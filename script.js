@@ -10,7 +10,7 @@ body.style.alignItems = "center";
 function resetEtch(){
     const newPixels = prompt("How many pixels would you like your new Etch Board to be? (between 1 and 100");
     if (newPixels === null ){return}
-    
+
     const divToRemove = document.querySelector(".containerDiv");
     if (divToRemove != null) {
         body.removeChild(divToRemove);
@@ -27,6 +27,16 @@ function resetEtch(){
     }
 }
 
+function randomRGBInt () {
+    return Math.floor(Math.random()*(255 + 1));
+}
+
+function randomRGB(){
+    let r = randomRGBInt();
+    let g = randomRGBInt();
+    let b = randomRGBInt();
+    return "rgb(" + r + ", " + g + ", " + b + ")";
+}
 
 function etchMaker(pixels){
     
@@ -47,7 +57,7 @@ function etchMaker(pixels){
             const pixelDiv = document.createElement("div");
             pixelDiv.style.width = 100/pixels + "%";
             pixelDiv.style.backgroundColor = "black";
-            pixelDiv.addEventListener("mouseenter", e => e.target.style.backgroundColor = "white");
+            pixelDiv.addEventListener("mouseenter", e => e.target.style.backgroundColor = randomRGB());
             horizontalContainer.appendChild(pixelDiv);
         }
         outerContainer.appendChild(horizontalContainer);
