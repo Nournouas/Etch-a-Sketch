@@ -42,23 +42,17 @@ function randomRGB(){
 function etchMaker(pixels){
     
     const outerContainer = document.createElement("div");
-    outerContainer.style.display = "flex";
-    outerContainer.style.flexDirection = "column";
-    outerContainer.style.backgroundColor = "white";
-    outerContainer.style.width = "90vh";
-    outerContainer.style.height = "90vh";
     outerContainer.classList.add("containerDiv")
 
 
     for (let i = 0; i<pixels ; i++){
         const horizontalContainer = document.createElement("div");
-        horizontalContainer.style.display = "flex";
-        horizontalContainer.style.width = "100%";
+        horizontalContainer.classList.add("horizontalDiv");
         horizontalContainer.style.height = 100/pixels + "%";
         for (let u = 0; u<pixels ; u++){
             const pixelDiv = document.createElement("div");
             pixelDiv.style.width = 100/pixels + "%";
-            pixelDiv.style.backgroundColor = "white";
+            pixelDiv.classList.add("pixelDiv");
             pixelDiv.style.opacity = "0.1"
             pixelDiv.addEventListener("mouseenter", e => {
                 //e.target.style.backgroundColor = randomRGB();
