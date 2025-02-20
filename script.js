@@ -2,6 +2,7 @@ const body = document.querySelector("body");
 body.style.margin = "0";
 body.style.padding = "0";
 body.style.borderWidth = "0";
+body.style.backgroundColor = "lightgray";
 body.style.display = "flex";
 body.style.flexDirection = "column";
 body.style.alignItems = "center";
@@ -43,6 +44,7 @@ function etchMaker(pixels){
     const outerContainer = document.createElement("div");
     outerContainer.style.display = "flex";
     outerContainer.style.flexDirection = "column";
+    outerContainer.style.backgroundColor = "white";
     outerContainer.style.width = "90vh";
     outerContainer.style.height = "90vh";
     outerContainer.classList.add("containerDiv")
@@ -56,8 +58,13 @@ function etchMaker(pixels){
         for (let u = 0; u<pixels ; u++){
             const pixelDiv = document.createElement("div");
             pixelDiv.style.width = 100/pixels + "%";
-            pixelDiv.style.backgroundColor = "black";
-            pixelDiv.addEventListener("mouseenter", e => e.target.style.backgroundColor = randomRGB());
+            pixelDiv.style.backgroundColor = "white";
+            pixelDiv.style.opacity = "0.1"
+            pixelDiv.addEventListener("mouseenter", e => {
+                //e.target.style.backgroundColor = randomRGB();
+                e.target.style.backgroundColor = "black";
+                e.target.style.opacity = parseFloat(e.target.style.opacity) + 0.1;
+            });
             horizontalContainer.appendChild(pixelDiv);
         }
         outerContainer.appendChild(horizontalContainer);
